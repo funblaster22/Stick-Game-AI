@@ -7,8 +7,9 @@ public class Human extends Player {
 	}
 
 	@Override
-	public int makeMove() {
-		// TODO Auto-generated method stub
+	public int makeMove(int sticksRemaining) {
+		// TODO implement your code HERE
+		
 		return 1;
 	}
 
