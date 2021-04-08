@@ -23,7 +23,6 @@ public class Game {
 	
 	private void mainloop() {
 		System.out.println("Game started with " + players[0] + " and " + players[1]);
-		System.out.println();
 		int turnNum = 0;
 		while (stickCount > 0) {
 			int removeSticks = players[turnNum % 2].makeMove();
