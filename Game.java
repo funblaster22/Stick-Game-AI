@@ -20,4 +20,19 @@ public class Game {
 			throw new ArrayIndexOutOfBoundsException("Only 2 players can play at once");
 		}
 	}
+	
+	private void mainloop() {
+		System.out.println("Game started with " + players[0] + " and " + players[1]);
+		System.out.println();
+		int turnNum = 0;
+		while (stickCount > 0) {
+			int removeSticks = players[turnNum % 2].makeMove();
+			if (removeSticks < 1 || removeSticks > 3)  // Ensure the player only removes 0-3 sticks
+				throw new AssertionError(players[turnNum % 2].toString() + " can only remove 1-3 sticks, tried to remove " + removeSticks);
+			stickCount -= removeSticks;
+			turnNum++;
+		}
+		
+		System.out.println("Game over, " + players[(turnNum - 1) % 2] + " won!");
+	}
 }
