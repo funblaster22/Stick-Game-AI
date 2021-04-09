@@ -11,7 +11,7 @@ public class AI extends Player {
 
 	public AI(int ID, int startingSticks) {
 		super(ID);
-		if (bestBrainMatrix == null) {
+		if (bestBrainMatrix == null) {  // Generate an empty best brain matrix if it does not exist
 			bestBrainMatrix = new ArrayList[startingSticks];
 			for (int i=0; i<bestBrainMatrix.length; i++) {
 				bestBrainMatrix[i] = new ArrayList<Integer>();
@@ -20,7 +20,11 @@ public class AI extends Player {
 				bestBrainMatrix[i].add(3);
 			}
 		}
-		brainMatrix = bestBrainMatrix.clone();
+		
+		brainMatrix = new ArrayList[startingSticks];
+		for (int i=0; i<bestBrainMatrix.length; i++) {  // Clone best brain matrix deeply
+			brainMatrix[i] = (ArrayList<Integer>) bestBrainMatrix[i].clone();
+		}
 		// In the brain matrix, TODO: explain structure
 	}
 	
