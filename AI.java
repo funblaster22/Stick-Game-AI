@@ -26,11 +26,10 @@ public class AI extends Player {
 	
 	private void printMatrix() {
 		System.out.println(brainMatrix);
-		System.out.print("    ");
+		int i = 0;
 		for (ArrayList<Integer> hat : brainMatrix) {
-			System.out.print(" " + hat);
+			System.out.println("    " + i++ + ": " + hat);
 		}
-		System.out.println();
 	}
 
 	@Override

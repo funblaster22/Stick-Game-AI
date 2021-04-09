@@ -28,6 +28,8 @@ public class Game {
 			int removeSticks = players[turnNum % 2].makeMove(stickCount);
 			if (removeSticks < 1 || removeSticks > 3)  // Ensure the player only removes 0-3 sticks
 				throw new AssertionError(players[turnNum % 2].toString() + " can only remove 1-3 sticks, tried to remove " + removeSticks);
+			if (stickCount - removeSticks < 0)
+				throw new AssertionError(String.format("Cannot remove more sticks (%d) than avalible (%d)", removeSticks, stickCount));
 			stickCount -= removeSticks;
 			System.out.println(String.format("%s removed %d stick%s, %d remaining",
 					players[turnNum  % 2], removeSticks, removeSticks > 1 ? "s" : "", stickCount));
