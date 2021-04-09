@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
 public class Main {
-	public static final int ITERS = 100;
+	public static final int ITERS = 1000;
 	public static final int STARTING_STICK_COUNT = 20;
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("How many humans are playing? (0-2, 0=train)");
 		System.out.print("?:  ");
-		int players = input.nextInt();
+		int players = 0;
 		
 		for (int i=0; i<ITERS; i++) {
 			Game game = new Game(STARTING_STICK_COUNT);
@@ -24,5 +24,9 @@ public class Main {
 				throw new AssertionError("Only 0-2 players can play");
 			System.out.println();
 		}
+		
+		Game game = new Game(STARTING_STICK_COUNT);
+		new AI(69, STARTING_STICK_COUNT).play(game);
+		new Human(0).play(game);
 	}
 }

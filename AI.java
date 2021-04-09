@@ -34,9 +34,24 @@ public class AI extends Player {
 
 	@Override
 	public int makeMove(int sticksRemaining) {
-		// TODO implement your code HERE
+		sticksRemaining--;  // Convert to 0-indexing
 		
-		return 1;
+		// Choose random weighted
+		int removeSticks = 0;
+		do { // TODO: Ensure the AI doesn't remove more sticks than available
+			int removeStickIndex = (int)(Math.random() * brainMatrix[sticksRemaining].size());
+			removeSticks = brainMatrix[sticksRemaining].get(removeStickIndex);
+			/*System.out.print(sticksRemaining);
+			System.out.print(removeSticks);
+			System.out.print(sticksRemaining - removeSticks);
+			System.out.print(sticksRemaining - removeSticks < 0);*/
+		} while (sticksRemaining + 1 - removeSticks < 0);
+		System.out.println();
+		
+		// Add however many sticks removed to the AI's brain so if it wins, it can remember that move for next time 
+		brainMatrix[sticksRemaining].add(removeSticks);
+		
+		return removeSticks;
 	}
 	
 	@Override
