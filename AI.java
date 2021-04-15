@@ -32,7 +32,7 @@ public class AI extends Player {
 		System.out.println(brainMatrix);
 		int i = 0;
 		for (ArrayList<Integer> hat : brainMatrix) {
-			System.out.println("    " + i++ + ": " + hat);
+			System.out.println("    " + ++i + ": " + hat);
 		}
 	}
 
